@@ -1,0 +1,21 @@
+<li class="nav-item">
+    <div class="drop">
+        <li class="nav-item dropdown">
+       <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 20px;">
+        Categories
+       </a>
+       <ul class="dropdown-menu">
+        {% for i in cat %}
+         <li><a class="dropdown-item" href="{% url 'cat' i.id %}">{{i.title}}</a></li>
+         
+        {% endfor %}
+       </ul>
+     </li>
+     {% for i in cat %}
+    <ul class="catli">
+    <a class="catli"  href="{% url 'cat' i.id %}" style="text-decoration: none !important; color:black; font-size:10px;" ><li style="font-size: 20px;" >{{i.title}}</li></a> </a>
+    </ul>
+    {% endfor %}
+    </div>
+</li>
+

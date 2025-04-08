@@ -1,0 +1,19 @@
+<div class="in">
+    <form action="{% url 'search_ads' %}" method="get">
+       <div class="search2 form-group" style="display: flex; align-items:center">
+           <span class="input-group-text">
+       <label for="searchinput"></label>
+       <input class="secondform  form-control " id="exampleFormControlSelect1" type="text" name="q" value="{{request.GET.q}}">
+           </span>
+           <div class="search">
+             <button type="submit">
+               <span class="material-symbols-outlined">
+               search</span>
+             </button>
+               
+               
+           </div>
+         
+       </div>
+   </form>
+</div>

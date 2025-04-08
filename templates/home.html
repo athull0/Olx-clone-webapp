@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{%block links%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+{% block contents %}
+{% if messages %}
+<ul class="messages" id="auth-message">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<div class="main">
+   {% for i in ads %}
+   <a style="text-decoration: none; " href="{% url 'addetails' i.id%}">
+    <div class="imagelink">
+        
+        <img src="/user/{{i.image}}">
+        <p style="font-size: 30px;">₹{{i.Price}}</p>
+        <p style="font-weight: 100;">{{i.title}}</p>
+        
+        
+    </div>
+   </a>
+    
+    
+    {%endfor%} 
+</div>
+<script src="{% static 'js/home.js'%}"></script>
+{% endblock %}

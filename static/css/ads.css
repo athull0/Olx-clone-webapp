@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.main{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* margin-top: 20%; */
+    height: auto;
+    padding-top: 50px;
+    padding-bottom: 80px;
+}
+.imagelink{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    box-shadow: 0 0 10px;
+    gap: 10px;
+    padding: 20px;
+    width: 500px;
+
+
+}
+/* .box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+} */
+.imagelink img{
+    width: 400px;
+    height: 300px;
+    
+}

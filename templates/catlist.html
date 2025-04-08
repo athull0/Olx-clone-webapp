@@ -1,0 +1,37 @@
+{% for i in ads %}
+
+<p>{{i.title}}</p>
+<p>{{i.Price}}</p>
+
+{% empty %}
+<p>no matches</p>
+ {% endfor %}
+
+
+ {% extends 'base.html' %}
+{% block links %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/catlist.css' %}">
+{% endblock %}
+
+{% block contents %}
+
+<div class="main">
+    {% for i in ads %}
+    <a href="{% url 'addetails' ad.id%}">
+       <div class="ad">
+        <img src="/user/{{ad.image}}">
+        <h3>{{ ad.title }}</h3>
+        <p>Category: {{ ad.category }}</p>
+        <p>Price: ₹{{ ad.Price }}</p>
+        
+        </div> 
+    </a>
+     
+    {% empty %}
+    <p>No ads found matching your criteria.</p> 
+
+{% endfor %}    
+    
+    
+</div>

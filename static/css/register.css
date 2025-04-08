@@ -1,0 +1,28 @@
+.main{
+    display: flex;
+    /* height: max-content; */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* min-height: 1000px; */
+    height: auto;
+    padding-top: 50px;
+    padding-bottom: 80px;
+    gap: 10px;
+}
+.register{
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    
+    border: 2px solid black;
+}
+.register button{
+    max-width: 200px;
+    width: 100%;
+    background-color: rgb(104, 198, 236);
+    border-radius: 10px;
+}
+.register input{
+    background-color: rgb(223, 211, 211);
+}

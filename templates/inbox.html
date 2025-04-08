@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block links %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/inbox.css' %}">
+{% endblock %}
+{%block contents%}
+<div class="main">
+    <p>inbox</p>
+     {% for i in msg %}
+    <div class="msgbox">
+       
+        <p>Message:<br>{{i.message}}</p>
+        <hr class="det">
+       
+        <p>From : {{i.sender.username}}</p>
+        <p >Product:{{i.ad.title}}</p>
+    </div>
+     {% endfor %}
+</div>
+
+{%endblock%}

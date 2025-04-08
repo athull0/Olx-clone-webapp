@@ -1,0 +1,17 @@
+.adad{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 100px;
+    gap: 10px;
+}
+/* .adadbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    border: 2px solid black;
+    box-shadow: 0 0 10px;
+    width: 60%;
+} */

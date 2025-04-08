@@ -1,0 +1,270 @@
+html,body{
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* .header{
+    width: 100% !important;
+    height: 100px !important;
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    background-color: rgb(233, 221, 221) !important;
+    gap: 20px;
+    
+    
+} */
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 55px;
+    padding: 0 10px;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+.olx{
+    margin: 0;
+    flex-shrink: 0;
+    margin-right: 40px;
+    
+}
+.form{
+    border: none;
+}
+.firstform{
+    width: 300px;
+    max-width: 100%;
+    height: 50px;
+    border-radius: 0%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    /* flex-wrap: wrap; */
+
+}
+.in{
+    border: 2px solid black;
+    box-shadow: 0 0 10px;
+}
+
+.navbar img{
+    width: 100px;  
+    height: min-content;
+    max-width: 100%;
+    
+}
+/* .search1{
+    margin-top: 20px;
+    
+}
+.search2{
+    margin-top:20px;
+} */
+.search-container {
+    display: flex;
+    align-items: center;
+    border: 2px solid #ccc;
+    background-color: white;
+    /* width: 100%; */
+    max-width: 600px;
+
+    height: 30px;
+    border-radius: 0;
+    border: 2px solid black;
+    /* box-shadow: 0 0 10px; */
+}
+
+
+.search-form {
+    display: flex;
+    border: 2px solid #ccc;
+    border-radius: none;
+    overflow: hidden;
+    width: 100%;
+    background: white;
+    height: 40px;
+    max-width: 600px;
+
+}
+.search-form1{
+    display: flex;
+    border: 2px solid #ccc;
+    border-radius: none;
+    overflow: hidden;
+    width: 100%;
+    background: white;
+    height: 40px;
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+    height: 35px;
+}
+
+.search-button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border-radius: 0; 
+}
+
+.search-button span {
+    font-size: 18px;
+}
+
+.custom-select{
+    appearance: none;
+    background: url('https://cdn-icons-png.flaticon.com/16/32/32195.png') no-repeat right;
+    background-size: 16px;
+    padding-right: 30px; 
+    cursor: pointer;
+}
+.drop{
+    display: flex;
+    align-items: center;
+}
+ul,li{
+    list-style-type: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+}
+
+.sell {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    padding: 5px 12px;
+    z-index: 1000;
+    background: white;
+    border: none;
+    border-radius: 20px;
+    /* padding: 10px 15px; */
+    /* padding: 10px; */
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    box-shadow: 0px 0px 4px 2px yellow, 3px 3px 4px 2px blue;
+    margin-top: 0;
+    align-self: center;
+    margin-bottom: 20px;
+}
+.nav-item dropdown{
+    margin-right: 10px;
+}
+.search {
+    flex: 1;
+    height: 100%;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    border-radius: 0; 
+}
+.searchbar{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-left: 20px; */
+    
+    gap: 20px;
+}
+.login_sell{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-right: 20px;
+    
+}
+.login{
+    margin-right: 0;
+    text-decoration: none;
+    color: black;
+}
+.catli{
+    display: flex;
+    flex-direction: row;
+}
+.allcat{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 100px;
+    flex-wrap: wrap;
+}
+.icons{
+    display: flex;
+    margin-right: 400px;
+    padding: 10px;
+    gap: 20px;
+    width: 60px;
+}
+footer{
+    width: 100%;
+}
+.nav-item .dropdown-toggle{
+    font-size: 20px;
+    padding: 5px 10px;
+}
+.navbar-nav{
+    align-items: center;
+    gap: 10px;
+}
+.dropdown-menu{
+    right: auto;
+    left: 0;
+    position:absolute
+}
+.dropdown{
+    position:relative;
+}
+.dropdown-item{
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.edit{
+    background-color: rgb(30, 30, 53);
+    color: white;
+    border-radius: 5px;
+}
+.logout{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.profilepic{
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.namepic{
+    display: flex;
+    gap: 10px;
+margin-left: auto;
+}
+.profile-container{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

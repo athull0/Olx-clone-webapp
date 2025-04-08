@@ -1,0 +1,12 @@
+{%extends 'base.html'%}
+
+{% block contents %}
+<form method="post">
+    {%csrf_token%}
+    <p>Are you sure yoy want to delete?</p>
+    <input type="submit" value="Yes proceed">
+    
+    
+</form>
+<a href="{% url 'ads' %}"><button>go back</button></a>
+{% endblock %}

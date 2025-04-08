@@ -1,0 +1,15 @@
+{%extends 'base.html'%}
+{% block links %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/myads.css' %}">
+{% endblock %}  
+{%block contents%}
+<div class="main">
+   <form class="myads" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit">
+   </form> 
+</div>
+
+{% endblock %}

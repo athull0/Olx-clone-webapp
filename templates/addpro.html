@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{%block links%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/addpro.css' %}">
+{%endblock%}
+{%block contents%}
+
+
+<form method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    <div class="adadbox">
+        <div class="adad">
+       {{form}}
+        <input type="file" name="images" multiple>
+        <input type="submit"> 
+        </div>
+    
+    </div>
+    
+</form>
+{%endblock%}

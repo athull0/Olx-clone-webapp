@@ -1,0 +1,103 @@
+html,body{
+    overflow-x: hidden;
+}
+
+.header{
+    width: 100% !important;
+    height: 100px !important;
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    background-color: rgb(233, 221, 221) !important;
+    gap: 20px;
+    
+    
+}
+.form{
+    border: none;
+}
+.firstform{
+    width: 300px;
+    max-width: 100%;
+    height: 50px;
+    border-radius: 0%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    /* flex-wrap: wrap; */
+
+}
+.secondform{
+    width: 900px;
+    max-width: 100%;
+    height: 50px;
+    border-radius: 0%;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    /* flex-wrap: wrap; */
+}
+.header img{
+    width: 100px;  
+    height: auto;
+    max-width: 100%;
+    
+}
+/* .search1{
+    margin-top: 20px;
+    
+}
+.search2{
+    margin-top:20px;
+} */
+.search{
+    background-color: black;
+    color: white;
+    border: none;
+    height: 50px;
+    margin-right: 0%;
+    padding: 8px 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.custom-select{
+    appearance: none;
+    background: url('https://cdn-icons-png.flaticon.com/16/32/32195.png') no-repeat right;
+    background-size: 16px;
+    padding-right: 30px; 
+    cursor: pointer;
+}
+.drop{
+    display: flex;
+    align-items: center;
+}
+ul,li{
+    list-style-type: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+}
+
+.sell {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+
+    z-index: 1000;
+    background: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    box-shadow: 0px 0px 4px 2px yellow, 3px 3px 4px 2px blue;
+    margin-top: 0;
+    align-self: center;
+}
+

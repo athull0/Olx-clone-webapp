@@ -1,0 +1,17 @@
+.main{
+    
+        display: flex;
+       
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        padding-top: 50px;
+        padding-bottom: 80px;
+        gap: 20px;
+    
+}
+form{
+    display: flex;
+    align-items: center;
+}

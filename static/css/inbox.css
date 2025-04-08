@@ -1,0 +1,29 @@
+.main{
+    display: flex;
+   flex-direction: column;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    /* align-items: center; */
+    height: auto;
+    padding-top: 50px;
+    padding-bottom: 80px;
+    gap: 20px;
+}
+.msgbox{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    /* justify-content: center; */
+    /* align-items: center; */
+    max-width: 300px;
+    width: 100%;
+    border-radius: 10px;
+
+}
+.det{
+    border-bottom: 1px solid black;
+    width: 100%;
+}
+p{
+    font-family: 'Times New Roman', Times, serif;
+}

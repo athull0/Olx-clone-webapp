@@ -1,0 +1,36 @@
+.main{
+    display: flex;
+   
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding-top: 50px;
+    padding-bottom: 80px;
+    gap: 20px;
+}
+.profile_pic{
+    max-width: 200px;
+    border-radius: 55%;
+    object-fit: cover;
+    border: 2px solid black;
+}
+.imgname{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+p{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.edit{
+    max-width: 200px;
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(29, 29, 49);
+    color: white;
+}

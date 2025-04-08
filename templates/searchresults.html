@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block links %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/searchresults.css' %}">
+{% endblock %}
+
+{% block contents %}
+
+<div class="main">
+    {% for ad in ads %}
+    <a href="{% url 'addetails' ad.id%}" style="text-decoration: none; color:black">
+       <div class="ad">
+        <img src="/user/{{ad.image}}">
+        <p style="font-size: 30px;"> ₹{{ ad.Price }}</p>
+        <h3>{{ ad.title }}</h3>
+        <p>Category: {{ ad.category }}</p>
+        
+        
+        </div> 
+    </a>
+     
+    {% empty %}
+    <p>No ads found matching your criteria.</p> 
+
+{% endfor %}    
+    
+    
+</div>
+    
+
+
+{%endblock%}

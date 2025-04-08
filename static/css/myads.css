@@ -1,0 +1,19 @@
+.main{
+    display: flex;
+   
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding-top: 50px;
+    padding-bottom: 80px;
+    gap: 20px;
+}
+.myads{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border: 2px solid black;
+}

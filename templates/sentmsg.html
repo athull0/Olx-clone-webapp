@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block links %}
+{% load static %}
+<link rel="stylesheet" href="[% static 'css/sentmsg.css' %]">
+{% endblock %}
+{% block contents %}
+<div class="main">
+    <div class="msgform">
+       <form method="post">
+    {% csrf_token %}
+    {{form}}
+    <!-- <input type="submit"  value="Sent" class="sent" > -->
+     <a><button type="submit"><span class="material-symbols-outlined">
+        send
+        </span></button></a>
+    </form>  
+    </div>
+   
+</div>
+{% endblock %}
