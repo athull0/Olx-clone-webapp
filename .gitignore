@@ -1,0 +1,15 @@
+# Ignore database
+db.sqlite3
+
+# Ignore media uploads
+/media/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore environment files (if any)
+.env
+
+# VSCode settings (optional)
+.vscode/
