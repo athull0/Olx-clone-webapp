@@ -4,11 +4,15 @@
 <link rel="stylesheet" href="{% static 'css/editpro.css' %}">
 {% endblock %}
 {% block contents %}
-<div class="main">
-    <form method="post" enctype="multipart/form-data">
+<div class="profile-container">
+    <form  class="profile-form" method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {{form}}
-    <input type="submit">
+    <h2>Edit Your Profile</h2>
+    <div class="form-fields">
+       {{form.as_p}} 
+    </div>
+    
+    <button type="submit" class="submit-btn">Submit Ad</button>
    </form>
 </div>
 

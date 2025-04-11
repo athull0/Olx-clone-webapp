@@ -1,26 +1,41 @@
 {% extends 'base.html' %}
-{% block links %}
 {% load static %}
+
+{% block links %}
 <link rel="stylesheet" href="{% static 'css/login.css' %}">
 {% endblock %}
+
 {% block contents %}
 {% if messages %}
-<ul class="messages" id="auth-message">
+<ul class="messages">
     {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %} style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:medium">{{ message }}</li>
+    <li class="message {{ message.tags }}">{{ message }}</li>
     {% endfor %}
 </ul>
 {% endif %}
-<div class="main">
-    <form method="post" class="loginform">
+
+<div class="login-container">
+  <form method="post" class="login-form">
     {% csrf_token %}
-    <input type="text" placeholder="Username" name="user">
-    <input type="password" placeholder="Password" name="pass">
-    <button class="log_in" type="submit">Login <span class="material-symbols-outlined">
-        login
-        </span></button>
-    <p>New user?<a href="{% url 'register' %}">Sign up</a></p>
-    </form>
+    <h2>Login</h2>
+
+    <div class="form-group">
+      <label for="id_user">Username</label>
+      <input type="text" id="id_user" name="user" placeholder="Enter your username">
+    </div>
+
+    <div class="form-group">
+      <label for="id_pass">Password</label>
+      <input type="password" id="id_pass" name="pass" placeholder="Enter your password">
+    </div>
+
+    <button type="submit" class="submit-btn">
+      <span class="material-symbols-outlined">login</span> Login
+    </button>
+
+    <p class="signup-text">New user? <a href="{% url 'register' %}">Sign up</a></p>
+  </form>
 </div>
+
 <script src="{% static 'js/login.js' %}"></script>
 {% endblock %}

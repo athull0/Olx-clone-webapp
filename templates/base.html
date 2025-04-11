@@ -13,12 +13,14 @@
     {% block links %}
     {%endblock%}
 </head>
-{% include 'header.html' %}
-<div class="allcat">
-  {%include 'allcategory.html'%}
-</div>
+
+
 
 <body>
+  {% include 'header.html' %}
+  <div class="allcat">
+  {%include 'allcategory.html'%}
+</div>
     {% block contents %}
     {% endblock %}
 </body>

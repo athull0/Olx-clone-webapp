@@ -2,78 +2,125 @@
 {% block links %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/addetail.css' %}">
+{% load static %}
+<!-- <link rel="stylesheet" href="{% static 'css/chat_page.css' %}"> -->
+
 {% endblock %}
+
 {% block contents %}
-<div class="main" style="background-color: rgb(243, 239, 239);">
-    <div class="carouselsizechart" style="flex-wrap:wrap; width:100%">
-            <div class="carousel"><div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                {% for i in adi %}
-                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                        <img src="/user/{{ i.image.url }}" class="d-block w-100" alt="Product Image">
-                    </div>
-                    {% empty %}
-                    <img src="/user/{{ads.image}}">
-                {% endfor %}
-            </div>
-        
-            <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-        
-            <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-            </div>
-           
-            
-    </div>   
+<div class="main-container">
 
-
-
-
-    <div class="details">
-        <div class="nametitledes">
-            <div class="nametitle">
-            
-            <h3>{{ads.title}}</h3>
-            </div>
-            <div class="des">
-                <h3>Description</h3>
-                <p>{{ads.Description}}</p>
-            </div>
+  
+  <div class="left-column">
+    <div class="carousel-wrapper">
+      <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          {% for i in adi %}
+          <div class="carousel-item {% if forloop.first %}active{% endif %}">
+            <img src="/user/{{ i.image.url }}" class="d-block w-100" alt="Product Image">
+          </div>
+          {% empty %}
+          <img src="/user/{{ads.image}}" class="d-block w-100">
+          {% endfor %}
         </div>
-        
-        
-        <div class="pricename">
-            <div class="price">
-                <h6 style="font-size: 60px;">₹{{ads.Price}}</h6>
-                <button class="makeoffer">Make offer</button>
-            </div>
-            
-            
-            <div class="name">
-                <p style="font-size: 40px;">{{ads.user.username}}</p>
-                
-                <p style="font-size: 10px;">{{ads.Email}}</p>
-                <a href="{% url 'sentmsg' ads.id %}">
-                <button class="msg">Chat with seller</button>
-                </a>
-                <p style="font-size: 20px;">Call:{{ads.contact}}</p>
-            </div>
-        
-        </div>
-        
-    
-        
-        
-        
-        
-        
+        <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
     </div>
-    
 
+    <div class="info-card title-box">
+      <h2>{{ ads.title }}</h2>
     </div>
+
+    <div class="info-card desc-box">
+      <h5>Description</h5>
+      <p>{{ ads.Description }}</p>
+    </div>
+  </div>
+
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#chatModal">
+  Open Chat
+</button>
+
+
+<div class="modal fade" id="chatModal" tabindex="-1" aria-labelledby="chatModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="chatModalLabel">Chat with {{ receiver.username }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="chat-content">
+          <div id="chat-box">
+            {% for msg in messages %}
+              <div class="message {% if msg.sender == user %}sent{% else %}received{% endif %}">
+                <span class="sender"><strong>{{ msg.sender.username }}:</strong></span>
+                <span class="text">{{ msg.message }}</span>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="input-box w-100">
+          <input type="text" id="messageInput" placeholder="Type your message..." />
+          <button onclick="sendMessage()">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+  
+  <div class="right-column">
+    <div class="info-card price-box">
+      <h1>₹{{ ads.Price }}</h1>
+      <button class="makeoffer">Make offer</button>
+    </div>
+
+    <div class="info-card seller-box">
+      <h4>{{ ads.user.username }}</h4>
+      <p>{{ ads.Email }}</p>
+      <a href="{% url 'chat_page' ads.user.id %}">
+        <button class="msg">Chat with seller</button>
+      </a>
+      <p>Call: {{ ads.contact }}</p>
+    </div>
+  </div>
+
+</div>
+<!-- <script>
+  function sendMessage() {
+    const message = document.getElementById("messageInput").value;
+    fetch("{% url 'send_message' %}", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": "{{ csrf_token }}"
+      },
+      body: JSON.stringify({
+        message: message,
+        receiver_id: "{{ receiver.id }}"
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      const chatBox = document.getElementById("chat-box");
+      chatBox.innerHTML += `<div class="message sent"><strong>${data.sender}:</strong> ${data.message}</div>`;
+      document.getElementById("messageInput").value = "";
+      chatBox.scrollTop = chatBox.scrollHeight;
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const chatBox = document.getElementById("chat-box");
+    if (chatBox) chatBox.scrollTop = chatBox.scrollHeight;
+  });
+</script> -->
+
 {% endblock %}

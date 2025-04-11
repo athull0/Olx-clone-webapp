@@ -17,7 +17,10 @@ urlpatterns = [
     path('search',search_ads,name='search_ads'),
     path('addetails/<int:aid>',addetailpage,name='addetails'),
     path('allcategory',allcategory),
-    path('catdet/<int:cid>',categorylist,name='cat')
+    path('catdet/<int:cid>',categorylist,name='cat'),
+    path('chat/<int:receiver_id>/',chat_page, name='chat_page'),
+    path('send-message/',send_message, name='send_message'),
+    path('allmessages',allmessages,name='allmessages')
     # path('filter',searchbycategory,name='searchbycategory')
 
 ]

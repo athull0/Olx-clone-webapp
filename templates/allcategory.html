@@ -1,21 +1,28 @@
-<li class="nav-item">
-    <div class="drop">
-        <li class="nav-item dropdown">
-       <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 20px;">
-        Categories
-       </a>
-       <ul class="dropdown-menu">
-        {% for i in cat %}
-         <li><a class="dropdown-item" href="{% url 'cat' i.id %}">{{i.title}}</a></li>
-         
-        {% endfor %}
-       </ul>
-     </li>
-     {% for i in cat %}
-    <ul class="catli">
-    <a class="catli"  href="{% url 'cat' i.id %}" style="text-decoration: none !important; color:black; font-size:10px;" ><li style="font-size: 20px;" >{{i.title}}</li></a> </a>
-    </ul>
-    {% endfor %}
-    </div>
-</li>
 
+<div class="bg-white border-top border-bottom py-2">
+    <div class="container-fluid d-flex flex-wrap align-items-center justify-content-between">
+      
+      
+      <div class="dropdown me-3 ">
+        <a class="dropdown-toggle text-dark text-decoration-none fw-bold category_dropdown" href="#" id="categoryDropdown" data-bs-toggle="dropdown">
+          All Categories
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+          {% for i in cat %}
+            <li><a class="dropdown-item" href="{% url 'cat' i.id %}">{{ i.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+  
+      
+      <div class="d-flex flex-row flex-wrap gap-3 overflow-auto categorymenu" style="white-space: nowrap;">
+        {% for i in cat %}
+          <a href="{% url 'cat' i.id %}" class="text-decoration-none text-dark" style="font-size: 16px; min-width: fit-content;">
+            {{ i.title }}
+          </a>
+        {% endfor %}
+      </div>
+  
+    </div>
+  </div>
+  

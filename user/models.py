@@ -36,3 +36,12 @@ class Contact(models.Model):
     ad = models.ForeignKey(Ad,on_delete=models.CASCADE,null=True,related_name='interested_ad')
     def __str__(self):
         return self.sender.username
+    
+class ChatMessage(models.Model):
+    sender = models.ForeignKey(User,on_delete=models.CASCADE,related_name="sent_messages")
+    receiver = models.ForeignKey(User,on_delete=models.CASCADE,related_name='receiver_message')
+    message = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['timestamp']

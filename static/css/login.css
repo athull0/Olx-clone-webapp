@@ -1,29 +1,102 @@
-.main{
+.login-container {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 800px;
-    height: auto;
-    gap: 10px;
-}
-.loginform{
-    display: flex;
-    flex-direction: column;
-    border: 1px solid black;
+    height: 90vh;
+    background: #f4f4f4;
+  }
+  
+  .login-form {
+    background: white;
+    padding: 30px 40px;
     border-radius: 10px;
-    padding: 60px;
-    gap: 10px;
-    max-width: 300px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
     width: 100%;
-}
-.log_in{
+    max-width: 400px;
+  }
+  
+  .login-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #444;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
-    max-width: 150px;
-    width: 100%;
-    background-color: aquamarine;
-
-}
+    gap: 5px;
+    cursor: pointer;
+  }
+  
+  .submit-btn:hover {
+    background-color: #0b5ed7;
+  }
+  
+  .signup-text {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+  }
+  
+  .signup-text a {
+    color: #0d6efd;
+    text-decoration: none;
+  }
+  
+  .signup-text a:hover {
+    text-decoration: underline;
+  }
+  
+  ul.messages {
+    list-style: none;
+    padding: 10px;
+    max-width: 400px;
+    margin: 10px auto;
+  }
+  
+  ul.messages .message {
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  ul.messages .error {
+    background-color: #ffe2e2;
+    color: #c0392b;
+    border: 1px solid #c0392b;
+  }
+  
+  ul.messages .success {
+    background-color: #e2ffe9;
+    color: #27ae60;
+    border: 1px solid #27ae60;
+  }
+  

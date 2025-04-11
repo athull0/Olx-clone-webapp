@@ -1,17 +1,80 @@
-.adad{
+.addpro-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    margin-top: 100px;
-    gap: 10px;
-}
-/* .adadbox{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 100px;
-    border: 2px solid black;
-    box-shadow: 0 0 10px;
-    width: 60%;
-} */
+    padding: 50px 20px 100px 20px; 
+    min-height: 100vh;
+    background-color: #f4f4f4;
+  }
+  
+  .addpro-form {
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 80px; 
+  }
+  
+  
+  .addpro-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .form-fields p {
+    margin-bottom: 15px;
+  }
+  
+  .form-fields label {
+    font-weight: 600;
+    color: #444;
+  }
+  
+  .form-fields input,
+  .form-fields select,
+  .form-fields textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .form-group {
+    margin-top: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 5px;
+  }
+  
+  input[type="file"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #f9f9f9;
+    width: 100%;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .submit-btn:hover {
+    background-color: #0b5ed7;
+  }
+  

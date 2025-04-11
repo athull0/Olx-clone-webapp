@@ -1,21 +1,26 @@
 {% extends 'base.html' %}
-{%block links%}
 {% load static %}
+
+{% block links %}
 <link rel="stylesheet" href="{% static 'css/addpro.css' %}">
-{%endblock%}
-{%block contents%}
+{% endblock %}
 
+{% block contents %}
+<div class="addpro-container">
+  <form method="post" enctype="multipart/form-data" class="addpro-form">
+    {% csrf_token %}
+    <h2>Add New Product</h2>
 
-<form method="post" enctype="multipart/form-data">
-    {%csrf_token%}
-    <div class="adadbox">
-        <div class="adad">
-       {{form}}
-        <input type="file" name="images" multiple>
-        <input type="submit"> 
-        </div>
-    
+    <div class="form-fields">
+      {{ form.as_p }}
     </div>
-    
-</form>
-{%endblock%}
+
+    <div class="form-group">
+      <label for="id_images">Upload Images</label>
+      <input type="file" name="images" id="id_images" multiple>
+    </div>
+
+    <button type="submit" class="submit-btn">Add Product</button>
+  </form>
+</div>
+{% endblock %}

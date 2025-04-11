@@ -12,13 +12,20 @@
 </ul>
 {% endif %}
 <div class="main">
-   {% for i in ads %}
-   <a style="text-decoration: none; " href="{% url 'addetails' i.id%}">
-    <div class="imagelink">
+    {% for i in ads %}
+    <a  style="text-decoration: none;" href="{% url 'addetails' i.id %}">
+      <div class="imagelink">
+  
+        <div class="image-wrapper">
+          <img src="/user/{{i.image}}">
+        </div>
         
-        <img src="/user/{{i.image}}">
-        <p style="font-size: 30px;">₹{{i.Price}}</p>
+        <div class="info">
+          <p style="font-size: 30px;">₹{{i.Price}}</p>
+        <p>{{i.user.username}}</p>
         <p style="font-weight: 100;">{{i.title}}</p>
+        </div>
+        
         
         
     </div>
@@ -27,5 +34,8 @@
     
     {%endfor%} 
 </div>
+
+  
+  
 <script src="{% static 'js/home.js'%}"></script>
 {% endblock %}

@@ -8,25 +8,17 @@
 
 <div class="main">
     {% for ad in ads %}
-    <a href="{% url 'addetails' ad.id%}" style="text-decoration: none; color:black">
-       <div class="ad">
-        <img src="/user/{{ad.image}}">
-        <p style="font-size: 30px;"> ₹{{ ad.Price }}</p>
-        <h3>{{ ad.title }}</h3>
-        <p>Category: {{ ad.category }}</p>
-        
-        
-        </div> 
-    </a>
-     
+    <div class="box">
+        <a href="{% url 'addetails' ad.id %}" style="text-decoration: none; color:black">
+            <img src="/user/{{ ad.image }}" alt="{{ ad.title }}">
+            <p class="price">₹{{ ad.Price }}</p>
+            <h3>{{ ad.title }}</h3>
+            <p class="category">Category: {{ ad.category }}</p>
+        </a>
+    </div>
     {% empty %}
-    <p>No ads found matching your criteria.</p> 
-
-{% endfor %}    
-    
-    
+        <p>No ads found matching your criteria.</p>
+    {% endfor %}
 </div>
-    
 
-
-{%endblock%}
+{% endblock %}

@@ -1,15 +1,21 @@
-{%extends 'base.html'%}
-{% block links %}
+{% extends 'base.html' %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/myads.css' %}">
-{% endblock %}  
-{%block contents%}
-<div class="main">
-   <form class="myads" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{form}}
-    <input type="submit">
-   </form> 
-</div>
 
+{% block links %}
+<link rel="stylesheet" href="{% static 'css/myads.css' %}">
+{% endblock %}
+
+{% block contents %}
+<div class="myads-container">
+  <form class="myads-form" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h2>Post Your Ad</h2>
+
+    <div class="form-fields">
+      {{ form.as_p }}
+    </div>
+
+    <button type="submit" class="submit-btn">Submit Ad</button>
+  </form>
+</div>
 {% endblock %}

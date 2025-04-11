@@ -6,29 +6,23 @@
 
 {% block contents %}
 <div class="main">
-    <div class="imgname" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-      {% if pro.img %}
-      <img class="profile_pic"  src="/user/{{pro.img}}">
-      {% else %}
-      <span class="material-symbols-outlined">
-        face
-        </span>
-      {%endif%}
-        <p>{{pro.user}}</p>
-        <p>About:{{pro.bio}}</p>
-        <p>Contact:{{pro.phone}}</p>
-        <p>Address:{{pro.address}}</p>  
-    </div>
-  <div >
-    <a href="{% url 'editpro' pro.id %}" style="text-decoration: none; color:black">
-    <button class="edit"><span class="material-symbols-outlined">
-      edit
-      </span>Edit profile</button>
-  </a>
-  </div>
-  
-  
-  <a href="{% url 'ads' %}" style="text-decoration: none; color:black">My ads</a>  
-</div>
+  <div class="profile-card">
+    {% if pro.img %}
+    <img class="profile-pic" src="/user/{{pro.img}}" alt="Profile Picture">
+    {% else %}
+    <span class="material-symbols-outlined default-icon">face</span>
+    {% endif %}
 
+    <h2>{{ pro.user }}</h2>
+    <p><strong>About:</strong> {{ pro.bio }}</p>
+    <p><strong>Contact:</strong> {{ pro.phone }}</p>
+    <p><strong>Address:</strong> {{ pro.address }}</p>  
+
+    <a href="{% url 'editpro' pro.id %}" class="edit-btn">
+      <span class="material-symbols-outlined">edit</span>Edit Profile
+    </a>
+
+    <a href="{% url 'ads' %}" class="ads-link">My Ads</a>
+  </div>
+</div>
 {% endblock %}

@@ -4,6 +4,11 @@ from website.views import homepage
 from .forms import RegUser,ProfileForm,AdForm,ContactForm
 from django.contrib import messages
 from .models import *
+from django.views.decorators.csrf import csrf_exempt
+import json
+from django.http import JsonResponse,HttpResponseForbidden
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 def adduser(request):
@@ -12,6 +17,7 @@ def adduser(request):
         if form.is_valid():
             a = form.save()
             Profile.objects.create(user = a)
+            login(request,a)
             messages.success(request,'User has been registered')
             return redirect(homepage)
     else:
@@ -114,7 +120,7 @@ def sentmessage(request,aid):
                 msg.ad = ads
                 msg.save()
                 print(f"Message sent! Sender: {msg.sender}, Receiver: {msg.reciever}, Ad: {msg.ad}")
-                return redirect(homepage)
+                return redirect(addetailpage,aid)
     
 
         
@@ -144,7 +150,8 @@ def search_ads(request):
 def addetailpage(request,aid):
     ads = Ad.objects.get(id=aid)
     adi = Adimage.objects.filter(ad = ads)
-    return render(request,'addetail.html',{'ads':ads,'adi':adi})
+    receiver = ads.user
+    return render(request,'addetail.html',{'ads':ads,'adi':adi,'receiver':receiver})
 
 
 
@@ -157,4 +164,48 @@ def allcategory(request):
 def categorylist(request,cid):
     ads = Ad.objects.filter(category = cid)
     return render(request,'searchresults.html',{'ads':ads})
+
+def chat_page(request, receiver_id):
+    receiver = get_object_or_404(User, id=receiver_id)
+    messages = ChatMessage.objects.filter(
+        sender=request.user, receiver=receiver
+    ) | ChatMessage.objects.filter(
+        sender=receiver, receiver=request.user
+    )
+    
+    return render(request, 'chat_page.html', {
+        'receiver': receiver,
+        'messages': messages
+    })
+
+@csrf_exempt
+@login_required
+def send_message(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+        receiver = User.objects.get(id=data['receiver_id'])
+        msg = ChatMessage.objects.create(
+            sender=request.user,
+            receiver=receiver,
+            message=data['message']
+        )
+        return JsonResponse({
+            'status': 'ok',
+            'message': msg.message,
+            'sender': request.user.username
+        })
+    
+def allmessages(request):
+    messages = ChatMessage.objects.filter(receiver = request.user).order_by('-timestamp')
+
+    unique_messages = {}
+    
+    for message in messages:
+        if message.sender not in unique_messages:
+            unique_messages[message.sender] = message
+
+        messages = list(unique_messages.values())
+    return render(request,'allmessages.html',{'messages':messages})
+
+
 

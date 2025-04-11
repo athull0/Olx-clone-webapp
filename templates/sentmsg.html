@@ -1,20 +1,25 @@
 {% extends 'base.html' %}
 {% block links %}
 {% load static %}
-<link rel="stylesheet" href="[% static 'css/sentmsg.css' %]">
+<link rel="stylesheet" href="{% static 'css/sentmsg.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 {% endblock %}
+
 {% block contents %}
-<div class="main">
-    <div class="msgform">
-       <form method="post">
-    {% csrf_token %}
-    {{form}}
-    <!-- <input type="submit"  value="Sent" class="sent" > -->
-     <a><button type="submit"><span class="material-symbols-outlined">
-        send
-        </span></button></a>
-    </form>  
+<div class="msg-container">
+    <div class="msg-box">
+        <h2>Send a Message</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.message.label_tag }}
+                {{ form.message }}
+            </div>
+            <button type="submit" class="send-btn">
+                <span class="material-symbols-outlined">send</span>
+            </button>
+        </form>
     </div>
-   
 </div>
 {% endblock %}
+
